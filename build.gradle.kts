@@ -38,6 +38,10 @@ configure<BukkitPluginDescription> {
     apiVersion = "1." + pluginVersion.split(".")[1]
 }
 
+kotlinter {
+    ignoreFailures = true
+}
+
 tasks.withType<ShadowJar> {
     configurations = listOf(shadowImplementation)
     archiveClassifier.set("")
