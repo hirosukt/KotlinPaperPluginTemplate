@@ -20,7 +20,7 @@ val pluginVersion: String by project.ext
 
 repositories {
     mavenCentral()
-    maven(url = "https://hub.spigotmc.org/nexus/content/repositories/snapshots/")
+    maven(url = "https://repo.papermc.io/repository/maven-public")
     maven(url = "https://oss.sonatype.org/content/groups/public/")
 }
 
@@ -29,7 +29,7 @@ configurations["implementation"].extendsFrom(shadowImplementation)
 
 dependencies {
     shadowImplementation(kotlin("stdlib"))
-    compileOnly("org.spigotmc:spigot-api:$pluginVersion-R0.1-SNAPSHOT")
+    compileOnly "io.papermc.paper:paper-api:$pluginVersion-R0.1-SNAPSHOT"
 }
 
 configure<BukkitPluginDescription> {
