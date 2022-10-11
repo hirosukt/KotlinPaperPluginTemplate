@@ -30,6 +30,7 @@ configurations["implementation"].extendsFrom(shadowImplementation)
 dependencies {
     shadowImplementation(kotlin("stdlib"))
     compileOnly "io.papermc.paper:paper-api:$pluginVersion-R0.1-SNAPSHOT"
+    compileOnly "dev.jorel:commandapi-core:8.5.1"
 }
 
 configure<BukkitPluginDescription> {
