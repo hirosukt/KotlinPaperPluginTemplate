@@ -22,6 +22,7 @@ repositories {
     mavenCentral()
     maven(url = "https://repo.papermc.io/repository/maven-public")
     maven(url = "https://oss.sonatype.org/content/groups/public/")
+    maven(url = "https://repo.codemc.org/repository/maven-public/")
 }
 
 val shadowImplementation: Configuration by configurations.creating
