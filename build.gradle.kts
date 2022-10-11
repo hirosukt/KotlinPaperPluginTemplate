@@ -55,20 +55,30 @@ tasks.named("build") {
     dependsOn("shadowJar")
 }
 
-task<LaunchMinecraftServerTask>("buildAndLaunchServer") {
-    dependsOn("build")
-    doFirst {
-        copy {
-            from(buildDir.resolve("libs/${project.name}.jar"))
-            into(buildDir.resolve("MinecraftServer/plugins"))
+listOf(
+    "1.13.2",
+    "1.14.4",
+    "1.15.2",
+    "1.16.5",
+    "1.17.1",
+    "1.18.2",
+    "1.19.2"
+).forEach { version ->
+    task<LaunchMinecraftServerTask>("buildAndLaunchServer-$version") {
+        dependsOn("build")
+        doFirst {
+            copy {
+                from(buildDir.resolve("libs/${project.name}.jar"))
+                into(buildDir.resolve("MinecraftServer-$version/plugins"))
+            }
         }
-    }
 
-    jarUrl.set(JarUrl.Paper(pluginVersion))
-    jarName.set("server.jar")
-    serverDirectory.set(buildDir.resolve("MinecraftServer"))
-    nogui.set(true)
-    agreeEula.set(true)
+        jarUrl.set(JarUrl.Paper($version))
+        jarName.set("server.jar")
+        serverDirectory.set(buildDir.resolve("MinecraftServer-$version"))
+        nogui.set(true)
+        agreeEula.set(true)
+    }
 }
 
 task<SetupTask>("setup")
