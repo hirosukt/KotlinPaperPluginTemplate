@@ -40,6 +40,7 @@ configure<BukkitPluginDescription> {
     main = "@group@.Main"
     version = "$semVersion-" + gitVersion().split(".")[0]
     apiVersion = "1." + pluginVersion.split(".")[1]
+    author = "@group@"
 }
 
 kotlinter {
@@ -76,7 +77,7 @@ listOf(
             }
         }
 
-        jarUrl.set(JarUrl.Paper("$version"))
+        jarUrl.set(JarUrl.Paper(version))
         jarName.set("server.jar")
         serverDirectory.set(buildDir.resolve("MinecraftServer-$version"))
         nogui.set(true)
