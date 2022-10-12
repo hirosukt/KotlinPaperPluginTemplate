@@ -36,6 +36,8 @@ open class SetupTask : DefaultTask() {
         )
         projectDir.resolve("src/main/resources").apply(File::mkdirs)
         val buildScript = projectDir.resolve("build.gradle.kts")
+        val rsrcDir = projectDir.resolve("src/main/resources").apply(File::mkdirs)
+        rsrcDir.resolve("config.yml").createNewFile()
         buildScript.writeText(buildScript.readText().replace("@group@", groupId))
         projectDir.resolve("README.md").writeText(
             """
