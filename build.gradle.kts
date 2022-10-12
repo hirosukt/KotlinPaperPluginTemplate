@@ -14,9 +14,11 @@ plugins {
     id("org.jmailen.kotlinter") version "3.8.0"
 }
 
+val semVersion: String by project.ext
 val gitVersion: Closure<String> by extra
-
 val pluginVersion: String by project.ext
+
+version = semVersion
 
 repositories {
     mavenCentral()
@@ -36,7 +38,7 @@ dependencies {
 
 configure<BukkitPluginDescription> {
     main = "@group@.Main"
-    version = gitVersion()
+    version = "$semVersion-" + gitVersion().split(".")[0]
     apiVersion = "1." + pluginVersion.split(".")[1]
 }
 
