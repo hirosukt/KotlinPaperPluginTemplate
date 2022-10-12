@@ -39,6 +39,7 @@ configure<BukkitPluginDescription> {
     main = "@group@.Main"
     version = "$semVersion-" + gitVersion().split(".")[0]
     apiVersion = "1." + pluginVersion.split(".")[1]
+    author = "@group@"
 }
 
 kotlinter {
