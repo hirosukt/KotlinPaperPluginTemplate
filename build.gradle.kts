@@ -30,8 +30,8 @@ configurations["implementation"].extendsFrom(shadowImplementation)
 
 dependencies {
     shadowImplementation(kotlin("stdlib"))
-    compileOnly "io.papermc.paper:paper-api:$pluginVersion-R0.1-SNAPSHOT"
-    compileOnly "dev.jorel:commandapi-core:8.5.1"
+    compileOnly("io.papermc.paper:paper-api:$pluginVersion-R0.1-SNAPSHOT")
+    compileOnly("dev.jorel:commandapi-core:8.5.1")
 }
 
 configure<BukkitPluginDescription> {
@@ -74,7 +74,7 @@ listOf(
             }
         }
 
-        jarUrl.set(JarUrl.Paper($version))
+        jarUrl.set(JarUrl.Paper("$version"))
         jarName.set("server.jar")
         serverDirectory.set(buildDir.resolve("MinecraftServer-$version"))
         nogui.set(true)
