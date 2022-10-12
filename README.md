@@ -1,4 +1,4 @@
-# SpigotPluginTemplate
+# PaperPluginTemplate
 
 ## 使い方
 
